@@ -1,19 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using dotAPNS;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using NewBlackAuthenticator.Data;
 using NewBlackAuthenticator.Models;
-using Newtonsoft.Json.Linq;
 
 namespace NewBlackAuthenticator.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("ApiCorsPolicy")]
+
     public partial class AccountsController : ControllerBase
     {
         private readonly NBADBcontext _context;
@@ -28,7 +30,7 @@ namespace NewBlackAuthenticator.Controllers
         public ActionResult<User> CheckCredentials(LoginCredentials loginCredentials)
          {
             var username = loginCredentials.Username;
-            var password = loginCredentials.Password;
+            var password = Sha256Hash(loginCredentials.Password);
 
             var user = _context.Users
                 .Where(r => r.Username == username)
@@ -106,5 +108,24 @@ namespace NewBlackAuthenticator.Controllers
                 Console.WriteLine("APNs certificate has expired. No more push notifications can be sent using it until it is replaced with a new one.");
             }
         }
+
+        public string Sha256Hash(string password)
+        {
+            // Create a SHA256   
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // ComputeHash - returns byte array  
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                // Convert byte array to a string   
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
     }
 }
