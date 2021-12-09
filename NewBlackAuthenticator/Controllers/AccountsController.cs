@@ -8,12 +8,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewBlackAuthenticator.Data;
 using NewBlackAuthenticator.Models;
+using Newtonsoft.Json.Linq;
 
 namespace NewBlackAuthenticator.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountsController : ControllerBase
+    public partial class AccountsController : ControllerBase
     {
         private readonly NBADBcontext _context;
 
@@ -22,10 +23,13 @@ namespace NewBlackAuthenticator.Controllers
             _context = context;
         }
 
-        // GET: api/Accounts
-        [HttpGet]
-        public ActionResult<User> CheckCredentials(string username, string password)
-        {
+        // POST: api/Accounts
+        [HttpPost]
+        public ActionResult<User> CheckCredentials(LoginCredentials loginCredentials)
+         {
+            var username = loginCredentials.Username;
+            var password = loginCredentials.Password;
+
             var user = _context.Users
                 .Where(r => r.Username == username)
                 .FirstOrDefault();
@@ -33,7 +37,6 @@ namespace NewBlackAuthenticator.Controllers
             if (user == null)
             {
                 return NotFound();
-
             }
             else
             {
@@ -44,7 +47,6 @@ namespace NewBlackAuthenticator.Controllers
                 }
             }
             return NotFound();
-             
         }
 
         public async void SendPush(string deviceToken)
@@ -105,6 +107,4 @@ namespace NewBlackAuthenticator.Controllers
             }
         }
     }
-
-    
 }

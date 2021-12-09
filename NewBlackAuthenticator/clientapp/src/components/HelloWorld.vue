@@ -6,7 +6,7 @@
     <h3>All users table</h3>
     <template>
         <div>
-            <b-table striped hover :items="users" :fields="fields"></b-table>
+            <b-table striped hover :items="users"  :fields="fields"></b-table>
         </div>
     </template>
   </div>
@@ -20,8 +20,7 @@
 
         data() {
             return {
-                // Note `isActive` is left out and will not appear in the rendered table
-                fields: ['username', 'device_token1', 'device_token2'],
+                fields: ['username', 'password','device_token1', 'device_token2'],
                 users: [],
                 errors: [],
             }
@@ -37,9 +36,7 @@
             async getUsers() {
                 try {
                     const response = await axios.get(`https://localhost:44346/api/users`)
-                    // JSON responses are automatically parsed.
-                    //this.users = response.data
-                    console.log(response)
+                    console.log(response.data)
                 }
                 catch (e) {
                     this.errors.push(e)
@@ -51,7 +48,6 @@
                 .then(function (response) {
                     console.log(response);
                 })
-
         }
     }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\notas\\OneDrive\\Desktop\\New Black\\BackendApp\\NewBlackAuthenticator\\NewBlackAuthenticator.csproj": {}
+    "C:\\Users\\notas\\OneDrive\\Desktop\\Project\\New Black\\NewBlackAuthenticatorBE\\NewBlackAuthenticator\\NewBlackAuthenticator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\notas\\OneDrive\\Desktop\\New Black\\BackendApp\\NewBlackAuthenticator\\NewBlackAuthenticator.csproj": {
+    "C:\\Users\\notas\\OneDrive\\Desktop\\Project\\New Black\\NewBlackAuthenticatorBE\\NewBlackAuthenticator\\NewBlackAuthenticator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\notas\\OneDrive\\Desktop\\New Black\\BackendApp\\NewBlackAuthenticator\\NewBlackAuthenticator.csproj",
+        "projectUniqueName": "C:\\Users\\notas\\OneDrive\\Desktop\\Project\\New Black\\NewBlackAuthenticatorBE\\NewBlackAuthenticator\\NewBlackAuthenticator.csproj",
         "projectName": "NewBlackAuthenticator",
-        "projectPath": "C:\\Users\\notas\\OneDrive\\Desktop\\New Black\\BackendApp\\NewBlackAuthenticator\\NewBlackAuthenticator.csproj",
+        "projectPath": "C:\\Users\\notas\\OneDrive\\Desktop\\Project\\New Black\\NewBlackAuthenticatorBE\\NewBlackAuthenticator\\NewBlackAuthenticator.csproj",
         "packagesPath": "C:\\Users\\notas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\notas\\OneDrive\\Desktop\\New Black\\BackendApp\\NewBlackAuthenticator\\obj\\",
+        "outputPath": "C:\\Users\\notas\\OneDrive\\Desktop\\Project\\New Black\\NewBlackAuthenticatorBE\\NewBlackAuthenticator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -45,6 +45,10 @@
             "EntityFramework": {
               "target": "Package",
               "version": "[6.4.4, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

@@ -28,8 +28,12 @@ namespace NewBlackAuthenticator
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //services.AddDbContext<NBADBcontext>(options => options.UseSqlServer("name=ConnectionStrings:NBADB"));
             services.AddDbContext<NBADBcontext>(options => options.UseSqlite("name=ConnectionStrings:NBADB"));
+            services.AddCors(options => options.AddPolicy("ApiCorsPolicy", builder =>
+            {
+                builder.WithOrigins("http://localhost:8080").AllowAnyMethod().AllowAnyHeader();
+            }));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,10 +50,21 @@ namespace NewBlackAuthenticator
 
             app.UseAuthorization();
 
+            app.UseCors(builder => builder
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .SetIsOriginAllowed((host) => true)
+                .AllowCredentials());
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+            
+
+            //app.UseCors("ApiCorsPolicy");
+
+
         }
     }
 }
