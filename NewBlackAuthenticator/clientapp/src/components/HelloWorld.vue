@@ -1,14 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    
-    
-    <h3>All users table</h3>
-    <template>
-        <div>
-            <b-table striped hover :items="users"  :fields="fields"></b-table>
-        </div>
-    </template>
   </div>
 
 </template>

@@ -12,6 +12,8 @@ namespace NewBlackAuthenticator.Data
     public class NBADBcontext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<TwoFARegistration> TwoFARegistrations { get; set; }
+
 
         public NBADBcontext(DbContextOptions<NBADBcontext> options)
     : base(options)

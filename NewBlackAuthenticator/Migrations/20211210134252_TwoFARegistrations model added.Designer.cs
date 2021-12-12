@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewBlackAuthenticator.Data;
 
 namespace NewBlackAuthenticator.Migrations
 {
     [DbContext(typeof(NBADBcontext))]
-    partial class NBADBcontextModelSnapshot : ModelSnapshot
+    [Migration("20211210134252_TwoFARegistrations model added")]
+    partial class TwoFARegistrationsmodeladded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

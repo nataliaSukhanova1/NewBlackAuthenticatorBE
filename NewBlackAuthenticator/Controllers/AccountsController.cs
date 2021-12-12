@@ -44,7 +44,7 @@ namespace NewBlackAuthenticator.Controllers
             {
                 if (user.Password == password)
                 {
-                    SendPush(user.DeviceToken2);
+                    SendPush(user.DeviceToken1);
                     return user;
                 }
             }
@@ -56,9 +56,9 @@ namespace NewBlackAuthenticator.Controllers
             var options = new dotAPNS.ApnsJwtOptions()
             {
                 // bundleID of iOS app to get push on iPhone
-                BundleId = "com.natalia.NewBlackAuthenticator",
+                //BundleId = "com.natalia.NewBlackAuthenticator",
                 // bundleID of iOS app to get push on apple watch
-                //BundleId = "com.natalia.NewBlackAuthenticator.watchkitapp",
+                BundleId = "com.natalia.NewBlackAuthenticator.watchkitapp",
                 CertFilePath = @"C:\Users\notas\Desktop\New Black\AuthKey_2N5WTJ4J6S.p8", // use either CertContent or CertFilePath, not both
                 KeyId = "2N5WTJ4J6S",
                 TeamId = "J6XDULFLT4"
