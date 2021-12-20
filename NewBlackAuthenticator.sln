@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBlackAuthenticator", "NewBlackAuthenticator\NewBlackAuthenticator.csproj", "{56302491-93B5-49F4-9AF9-7ED8C9382F37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56302491-93B5-49F4-9AF9-7ED8C9382F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56302491-93B5-49F4-9AF9-7ED8C9382F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56302491-93B5-49F4-9AF9-7ED8C9382F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56302491-93B5-49F4-9AF9-7ED8C9382F37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8AF65566-0C65-4A8C-8227-DEC7DA8C3E30}
+	EndGlobalSection
+EndGlobal
